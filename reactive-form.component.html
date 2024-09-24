@@ -1,0 +1,36 @@
+<div class="form-container">
+    <form action="" [formGroup]="formData" (ngSubmit)="onSubmit(formData)" required>
+        <div class="form-sub">
+        <label for="name">Name:</label>
+        <input type="text" id="name" formControlName="name"></div>
+        <span *ngIf="formData.get('name')?.invalid && formData.get('name')?.touched ">
+            Name is required
+        </span><br>
+        <div class="form-sub">
+        <label for="email">Email:</label>
+        <input type="email" id="email" formControlName="email"></div>
+        <span *ngIf="formData.get('email')?.invalid && formData.get('email')?.touched ">
+            Email is required
+        </span><br>
+              <!-- <button mat-flat-button type="submit" [disabled]="formData.invalid">Basic</button> -->
+              <!-- <button mat-flat-button disabled>Disabled</button>
+              <a mat-flat-button href="https://www.google.com/" target="_blank">Link</a> -->
+              <!-- <button mat-flat-button  >Submit </button> -->
+
+
+              <!-- angular material demo -->
+              <section>
+               
+                <div class="example-button-row">
+                  <div class="example-flex-container">
+                    <div class="example-button-container">
+                      <button type="submit" [disabled]="formData.invalid"  mat-fab extended color="primary" >
+                        Submit
+                      </button>
+                    </div>
+                    
+                  </div>
+                </div>
+              </section>
+    </form>
+</div>

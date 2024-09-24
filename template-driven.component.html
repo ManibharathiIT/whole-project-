@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Template Driven Form</h1>
+        <form action="" #conatactform="ngForm" (submit)="onSubmit(conatactform)"  >
+            <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" #fname="ngModel" id="name" name="name" ngModel required/><br>
+            <span *ngIf="!fname.valid && (fname.touched || fname.dirty)">
+                Invalid Name
+            </span>
+        </div>
+            <div class="form-group"> 
+            <label for="email">Email:</label>
+            <input type="email" #email="ngModel" id="email" name="email" required ngModel/><br>
+            <span *ngIf="!email.valid && (email.touched || email.dirty)">
+                Invalid Email
+            </span>
+        </div> 
+            <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" #pwd="ngModel" id="password" name="password" required minlength="6" ngModel/><br>
+            <span *ngIf="!pwd.valid && (pwd.touched || pwd.dirty)">
+                Invalid Password
+            </span>
+            <span *ngIf="pwd.errors?.['minlength']">
+                Minimum Length is six
+            </span>
+        </div>
+            <div class="form-group">
+            <button type="submit" [disabled]="!conatactform.valid">Submit</button>
+        </div>
+        </form>
+        </div>
+</body>
+</html>
